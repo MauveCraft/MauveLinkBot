@@ -1,4 +1,4 @@
-package me.lenajenichen.discordluckbot.discord;
+package me.lenajenichen.mauvelinkbot.discord;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -25,7 +25,6 @@ public class DiscordBot_Main {
         }
     }
 
-    @SuppressWarnings("deprecation")
     public DiscordBot_Main() throws LoginException, IllegalAccessException, SecurityException {
         INSTANCE = this;
 

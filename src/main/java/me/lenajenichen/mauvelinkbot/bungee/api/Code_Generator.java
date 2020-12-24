@@ -1,4 +1,4 @@
-package me.lenajenichen.discordluckbot.bungee.api;
+package me.lenajenichen.mauvelinkbot.bungee.api;
 
 import java.util.ArrayList;
 import java.util.List;

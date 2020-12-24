@@ -1,6 +1,6 @@
-package me.lenajenichen.discordluckbot.bungee.api;
+package me.lenajenichen.mauvelinkbot.bungee.api;
 
-import me.lenajenichen.discordluckbot.bungee.MySQL.MySQL;
+import me.lenajenichen.mauvelinkbot.bungee.MySQL.MySQL;
 import net.md_5.bungee.api.ChatColor;
 
 import java.sql.PreparedStatement;

@@ -1,8 +1,8 @@
-package me.lenajenichen.discordluckbot;
+package me.lenajenichen.mauvelinkbot;
 
-import me.lenajenichen.discordluckbot.bungee.Link_Command;
-import me.lenajenichen.discordluckbot.bungee.MySQL.MySQL;
-import me.lenajenichen.discordluckbot.discord.DiscordBot_Main;
+import me.lenajenichen.mauvelinkbot.bungee.Link_Command;
+import me.lenajenichen.mauvelinkbot.bungee.MySQL.MySQL;
+import me.lenajenichen.mauvelinkbot.discord.DiscordBot_Main;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
 import net.md_5.bungee.config.Configuration;

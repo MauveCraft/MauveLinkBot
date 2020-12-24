@@ -1,4 +1,4 @@
-package me.lenajenichen.discordluckbot.bungee.MySQL;
+package me.lenajenichen.mauvelinkbot.bungee.MySQL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

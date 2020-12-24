@@ -1,7 +1,7 @@
-package me.lenajenichen.discordluckbot.bungee;
+package me.lenajenichen.mauvelinkbot.bungee;
 
-import me.lenajenichen.discordluckbot.bungee.api.Code_Generator;
-import me.lenajenichen.discordluckbot.Main;
+import me.lenajenichen.mauvelinkbot.bungee.api.Code_Generator;
+import me.lenajenichen.mauvelinkbot.Main;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
