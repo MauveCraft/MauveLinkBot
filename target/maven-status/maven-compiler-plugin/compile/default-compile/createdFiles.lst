@@ -1,7 +1,8 @@
-me\lenajenichen\discordluckbot\bungee\api\Code_Generator.class
-me\lenajenichen\discordluckbot\bungee\api\MySQLAPI.class
-me\lenajenichen\discordluckbot\discord\api\GroupManager.class
-me\lenajenichen\discordluckbot\discord\DiscordBot_Main.class
-me\lenajenichen\discordluckbot\Main.class
-me\lenajenichen\discordluckbot\bungee\Link_Command.class
-me\lenajenichen\discordluckbot\bungee\MySQL\MySQL.class
+me\lenajenichen\mauvelinkbot\bungee\api\Code_Generator.class
+me\lenajenichen\mauvelinkbot\bungee\MySQL\MySQL.class
+me\lenajenichen\mauvelinkbot\bungee\listener\JoinListener.class
+me\lenajenichen\mauvelinkbot\discord\api\GroupManager.class
+me\lenajenichen\mauvelinkbot\Main.class
+me\lenajenichen\mauvelinkbot\bungee\api\MySQLAPI.class
+me\lenajenichen\mauvelinkbot\bungee\commands\Link_Command.class
+me\lenajenichen\mauvelinkbot\discord\DiscordBot_Main.class

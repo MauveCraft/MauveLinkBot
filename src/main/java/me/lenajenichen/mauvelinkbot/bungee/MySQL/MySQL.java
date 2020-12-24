@@ -18,6 +18,7 @@ public class MySQL {
     public static String passwort2;
     public static Connection message_database;
     public static Connection player_database;
+    public static boolean mysql_connected = false;
 
     public static void connect()
     {
@@ -28,6 +29,7 @@ public class MySQL {
                 message_database = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username, passwort);
                 //player_database = DriverManager.getConnection("jdbc:mysql://" + host2 + ":" + port2 + "/" + database2 + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username2, passwort2);
                 System.out.println("MySQL ist Verbunden!");
+                mysql_connected = true;
             }
             catch (SQLException | ClassNotFoundException e)
             {

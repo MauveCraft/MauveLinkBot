@@ -1,5 +1,7 @@
-H:\DiscordLuckBot\src\main\java\me\lenajenichen\discordluckbot\discord\api\GroupManager.java
-H:\DiscordLuckBot\src\main\java\me\lenajenichen\discordluckbot\discord\DiscordBot_Main.java
-H:\DiscordLuckBot\src\main\java\me\lenajenichen\discordluckbot\bungee\api\Code_Generator.java
-H:\DiscordLuckBot\src\main\java\me\lenajenichen\discordluckbot\Main.java
-H:\DiscordLuckBot\src\main\java\me\lenajenichen\discordluckbot\bungee\Link_Command.java
+H:\MauveLinkBot\src\main\java\me\lenajenichen\mauvelinkbot\bungee\api\Code_Generator.java
+H:\MauveLinkBot\src\main\java\me\lenajenichen\mauvelinkbot\bungee\MySQL\MySQL.java
+H:\MauveLinkBot\src\main\java\me\lenajenichen\mauvelinkbot\discord\api\GroupManager.java
+H:\MauveLinkBot\src\main\java\me\lenajenichen\mauvelinkbot\bungee\api\MySQLAPI.java
+H:\MauveLinkBot\src\main\java\me\lenajenichen\mauvelinkbot\discord\DiscordBot_Main.java
+H:\MauveLinkBot\src\main\java\me\lenajenichen\mauvelinkbot\Main.java
+H:\MauveLinkBot\src\main\java\me\lenajenichen\mauvelinkbot\bungee\Link_Command.java
