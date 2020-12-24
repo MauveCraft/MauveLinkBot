@@ -26,7 +26,7 @@ public class MySQL {
             {
                 Class.forName("com.mysql.jdbc.Driver");
                 message_database = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username, passwort);
-                player_database = DriverManager.getConnection("jdbc:mysql://" + host2 + ":" + port2 + "/" + database2 + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username2, passwort2);
+                //player_database = DriverManager.getConnection("jdbc:mysql://" + host2 + ":" + port2 + "/" + database2 + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username2, passwort2);
                 System.out.println("MySQL ist Verbunden!");
             }
             catch (SQLException | ClassNotFoundException e)
