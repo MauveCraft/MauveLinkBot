@@ -21,7 +21,7 @@ public class MySQLAPI {
             MySQL.disconnect();
             e.printStackTrace();
         }
-        return "[Error] Message " + "'" + Message_name + "'" + " not found! \n[Error] Please contact Admin.";
+        return "[Error] Message " + "'" + Message_name + "'" + " not found! \n[Error] Please contact an Admin.";
     }
 
     public static String getMessageTranslateColorCodes(String Message_name, String language) {

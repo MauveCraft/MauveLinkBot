@@ -9,13 +9,10 @@ import net.md_5.bungee.event.EventHandler;
 public class JoinListener implements Listener {
 
     @EventHandler
-    public void postLoginEvent(PostLoginEvent e) {
+    public void onPostLoginEvent(PostLoginEvent e) {
         ProxiedPlayer p = e.getPlayer();
-        if(MySQL.mysql_connected == false) {
-            p.sendMessage("");
-            p.sendMessage("");
-            p.sendMessage("");
-        }
+        p.sendMessage(p.getUUID());
+        MySQL.updatePurchases("INSERT INTO players(playername, UUID) VALUES('" + p.getDisplayName() + "', '" + " " + "')");
     }
 
 }

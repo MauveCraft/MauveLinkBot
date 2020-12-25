@@ -1,24 +1,17 @@
 package me.lenajenichen.mauvelinkbot.bungee.MySQL;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MySQL {
 
     public static String host;
-    public static String host2;
     public static String port;
-    public static String port2;
     public static String database;
-    public static String database2;
     public static String username;
-    public static String username2;
     public static String passwort;
-    public static String passwort2;
     public static Connection message_database;
     public static Connection player_database;
-    public static boolean mysql_connected = false;
+    public static Statement stmt;
 
     public static void connect()
     {
@@ -27,9 +20,7 @@ public class MySQL {
             {
                 Class.forName("com.mysql.jdbc.Driver");
                 message_database = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username, passwort);
-                //player_database = DriverManager.getConnection("jdbc:mysql://" + host2 + ":" + port2 + "/" + database2 + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username2, passwort2);
                 System.out.println("MySQL ist Verbunden!");
-                mysql_connected = true;
             }
             catch (SQLException | ClassNotFoundException e)
             {
@@ -44,7 +35,6 @@ public class MySQL {
             try
             {
                 message_database.close();
-                player_database.close();
                 System.out.println("MySQL Verbindung getrennt!");
             }
             catch (SQLException e)
@@ -63,7 +53,10 @@ public class MySQL {
     {
         try
         {
+            MySQL.connect();
             message_database.prepareStatement("CREATE TABLE IF NOT EXISTS messages(Message_name VARCHAR(32), Message VARCHAR(100), messagelanguage VARCHAR(2));").executeUpdate();
+            message_database.prepareStatement("CREATE TABLE IF NOT EXISTS players(playername VARCHAR (16), UUID VARCHAR (36), discord_tag VARCHAR(37), is_linked BOOLEAN, code VARCHAR(16))").executeUpdate();
+            MySQL.disconnect();
         }
         catch (SQLException e)
         {
@@ -71,12 +64,28 @@ public class MySQL {
         }
     }
 
-    public static void createTable2() {
+    public static void updatePurchases(String sqlCommand) {
         try {
-            player_database.prepareStatement("CREATE TABLE IF NOT EXISTS players(ID INT NOT NULL PRIMARY KEY AUTOINCREMENT, playername VARCHAR(16), UUID VARCHAR(36), playerlanguage VARCHAR(2), rank VARCHAR(32));").executeUpdate();
+            MySQL.connect();
+            stmt = message_database.createStatement();
+            stmt.execute(sqlCommand);
+            System.out.println("Der SQL Command wurde erfolgreich ausgefürt!");
         } catch (SQLException e) {
+            System.out.println("Der SQL Command konnte nicht ausgeführt werden.");
             e.printStackTrace();
         }
+    }
+
+    public static ResultSet queryPurchases(String sqlCommand) {
+        try {
+            MySQL.connect();
+            stmt = message_database.createStatement();
+            return stmt.executeQuery(sqlCommand);
+        } catch (SQLException e) {
+            MySQL.disconnect();
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

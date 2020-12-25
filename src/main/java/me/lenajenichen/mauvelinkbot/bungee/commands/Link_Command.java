@@ -2,6 +2,7 @@ package me.lenajenichen.mauvelinkbot.bungee.commands;
 
 import me.lenajenichen.mauvelinkbot.bungee.api.Code_Generator;
 import me.lenajenichen.mauvelinkbot.Main;
+import me.lenajenichen.mauvelinkbot.bungee.api.MySQLAPI;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -31,6 +32,7 @@ public class Link_Command extends Command {
             tc_suffix.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Copy Code to Clipboard").create()));
             tc_suffix.addExtra("§a" + code + "§7. §7This Code will expire in 5 Minutes.");
             p.sendMessage(tc_suffix);
+            p.sendMessage(MySQLAPI.getMessageTranslateColorCodes("Hallo_Milo", "en"));
         }
     }
 }

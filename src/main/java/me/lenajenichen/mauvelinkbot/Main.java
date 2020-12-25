@@ -1,8 +1,9 @@
 package me.lenajenichen.mauvelinkbot;
 
+import me.lenajenichen.mauvelinkbot.bungee.api.MySQLAPI;
 import me.lenajenichen.mauvelinkbot.bungee.commands.Link_Command;
 import me.lenajenichen.mauvelinkbot.bungee.MySQL.MySQL;
-import me.lenajenichen.mauvelinkbot.bungee.commands.Setup_Command;
+import me.lenajenichen.mauvelinkbot.bungee.listener.JoinListener;
 import me.lenajenichen.mauvelinkbot.discord.DiscordBot_Main;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
@@ -31,6 +32,7 @@ public class Main extends Plugin {
 
     @Override
     public void onDisable() {
+        MySQL.disconnect();
         getLogger().info("Plugin off");
         DiscordBot_Main.shutdown();
     }
@@ -38,7 +40,7 @@ public class Main extends Plugin {
     public void registerEvents() {
         PluginManager pm = getProxy().getPluginManager();
         pm.registerCommand(this, new Link_Command(this));
-        pm.registerCommand(this, new Setup_Command(this));
+        pm.registerListener(this, new JoinListener());
     }
 
     public static Main getPlugin(Class<Main> mainClass) {

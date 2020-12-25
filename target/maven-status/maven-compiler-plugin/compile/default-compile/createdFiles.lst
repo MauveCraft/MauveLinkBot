@@ -1,4 +1,5 @@
 me\lenajenichen\mauvelinkbot\bungee\api\Code_Generator.class
+me\lenajenichen\mauvelinkbot\bungee\api\UUIDGenerator.class
 me\lenajenichen\mauvelinkbot\bungee\MySQL\MySQL.class
 me\lenajenichen\mauvelinkbot\bungee\listener\JoinListener.class
 me\lenajenichen\mauvelinkbot\discord\api\GroupManager.class
