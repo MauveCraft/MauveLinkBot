@@ -12,7 +12,7 @@ public class JoinListener implements Listener {
     public void onPostLoginEvent(PostLoginEvent e) {
         ProxiedPlayer p = e.getPlayer();
         p.sendMessage(p.getUUID());
-        MySQL.updatePurchases("INSERT INTO players(playername, UUID) VALUES('" + p.getDisplayName() + "', '" + " " + "')");
+        MySQL.updateQuery("INSERT INTO players(playername, UUID) VALUES('" + p.getDisplayName() + "', '" + " " + "')");
     }
 
 }

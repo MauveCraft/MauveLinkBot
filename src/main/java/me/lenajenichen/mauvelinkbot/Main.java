@@ -1,6 +1,5 @@
 package me.lenajenichen.mauvelinkbot;
 
-import me.lenajenichen.mauvelinkbot.bungee.api.MySQLAPI;
 import me.lenajenichen.mauvelinkbot.bungee.commands.Link_Command;
 import me.lenajenichen.mauvelinkbot.bungee.MySQL.MySQL;
 import me.lenajenichen.mauvelinkbot.bungee.listener.JoinListener;
@@ -62,7 +61,7 @@ public class Main extends Plugin {
                 mysql_cfg.set("port", "3306");
                 mysql_cfg.set("database", "discordbot");
                 mysql_cfg.set("username", "root");
-                mysql_cfg.set("password", "1234");
+                mysql_cfg.set("password", "V~r}t5KksDEDNSqe&?sp");
                 ConfigurationProvider.getProvider(YamlConfiguration.class).save(mysql_cfg, mysql_file);
             } catch (IOException e) {
                 e.printStackTrace();

@@ -1,5 +1,8 @@
 package me.lenajenichen.mauvelinkbot.bungee.MySQL;
 
+import me.lenajenichen.mauvelinkbot.Main;
+
+import java.io.File;
 import java.sql.*;
 
 public class MySQL {
@@ -13,12 +16,15 @@ public class MySQL {
     public static Connection player_database;
     public static Statement stmt;
 
+    private static Main mysql_config = new Main();
+
     public static void connect()
     {
         if (!isConnected()) {
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
+                stmt = message_database.createStatement();
                 message_database = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username, passwort);
                 System.out.println("MySQL ist Verbunden!");
             }
@@ -64,12 +70,13 @@ public class MySQL {
         }
     }
 
-    public static void updatePurchases(String sqlCommand) {
+    public static void updateQuery(String sqlCommand) {
         try {
             MySQL.connect();
-            stmt = message_database.createStatement();
+            System.out.println("MySQL Connected!");
             stmt.execute(sqlCommand);
             System.out.println("Der SQL Command wurde erfolgreich ausgefürt!");
+            MySQL.disconnect();
         } catch (SQLException e) {
             System.out.println("Der SQL Command konnte nicht ausgeführt werden.");
             e.printStackTrace();
