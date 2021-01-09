@@ -42,9 +42,9 @@ public class Main extends Plugin {
         pm.registerListener(this, new JoinListener());
     }
 
-    public static Main getPlugin(Class<Main> mainClass) {
-        return Main.getPlugin(Main.class);
-    }
+    //public static Main getPlugin(Class<Main> mainClass) {
+   //     return Main.getPlugin(Main.class);
+    //}
 
     public void createMySQLConfig() {
         if(!this.getDataFolder().exists()) {
@@ -78,6 +78,7 @@ public class Main extends Plugin {
             MySQL.username = mysql_cfg.getString("username");
             MySQL.passwort = mysql_cfg.getString("password");
         } catch (IOException e) {
+            System.out.println(mysql_cfg.getString("host"));
             e.printStackTrace();
         }
     }

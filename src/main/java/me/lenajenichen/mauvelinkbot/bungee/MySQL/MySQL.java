@@ -2,7 +2,6 @@ package me.lenajenichen.mauvelinkbot.bungee.MySQL;
 
 import me.lenajenichen.mauvelinkbot.Main;
 
-import java.io.File;
 import java.sql.*;
 
 public class MySQL {
@@ -16,15 +15,13 @@ public class MySQL {
     public static Connection player_database;
     public static Statement stmt;
 
-    private static Main mysql_config = new Main();
-
     public static void connect()
     {
         if (!isConnected()) {
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                stmt = message_database.createStatement();
+                //stmt = message_database.createStatement();
                 message_database = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username, passwort);
                 System.out.println("MySQL ist Verbunden!");
             }
