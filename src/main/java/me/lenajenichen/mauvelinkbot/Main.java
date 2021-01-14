@@ -31,14 +31,13 @@ public class Main extends Plugin {
 
     @Override
     public void onDisable() {
-        MySQL.disconnect();
         getLogger().info("Plugin off");
         DiscordBot_Main.shutdown();
     }
 
     public void registerEvents() {
         PluginManager pm = getProxy().getPluginManager();
-        pm.registerCommand(this, new Link_Command(this));
+        pm.registerCommand(this, new Link_Command(this, this));
         pm.registerListener(this, new JoinListener());
     }
 

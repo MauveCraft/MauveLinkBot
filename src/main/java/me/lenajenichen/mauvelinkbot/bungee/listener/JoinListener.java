@@ -6,13 +6,24 @@ import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class JoinListener implements Listener {
 
     @EventHandler
     public void onPostLoginEvent(PostLoginEvent e) {
         ProxiedPlayer p = e.getPlayer();
-        p.sendMessage(p.getUUID());
-        MySQL.updateQuery("INSERT INTO players(playername, UUID) VALUES('" + p.getDisplayName() + "', '" + " " + "')");
+        ResultSet getUser = MySQL.queryMySQL("SELECT playername FROM players WHERE playername = '" + p.getDisplayName() + "'");
+        try {
+            if (getUser.next()) {
+                MySQL.updateQuery("UPDATE players SET playername='" + p.getDisplayName() +"' WHERE UUID='" + p.getUniqueId().toString().replaceAll("-", "") + "'");
+            } else {
+                MySQL.updateQuery("INSERT INTO players(playername, UUID, discord_tag, is_linked, code) VALUES('" + p.getDisplayName() + "', '" + p.getUniqueId().toString().replaceAll("-", "") + "', '" + " " + "', " + false + ", '" + " " + "')");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

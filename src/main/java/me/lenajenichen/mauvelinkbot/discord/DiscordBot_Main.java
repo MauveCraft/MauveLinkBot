@@ -29,7 +29,7 @@ public class DiscordBot_Main {
         INSTANCE = this;
 
         new JDABuilder();
-        jda = JDABuilder.createDefault("NzkxMzk1MDE4OTgzMzQyMTQw.X-OiCw.gP-0Iwz__GRx4WR9c1wdf8yQ__M").build();
+        jda = JDABuilder.createDefault("NzkxMzk1MDE4OTgzMzQyMTQw.X-OiCw.ojlfxeT5iuuNYg1OGHhVunr4wD0").build();
 
         jda.getPresence().setActivity(Activity.playing("test123"));
         jda.getPresence().setStatus(OnlineStatus.ONLINE);

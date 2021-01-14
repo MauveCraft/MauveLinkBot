@@ -1,9 +1,11 @@
-me\lenajenichen\mauvelinkbot\bungee\api\Code_Generator.class
-me\lenajenichen\mauvelinkbot\bungee\api\UUIDGenerator.class
-me\lenajenichen\mauvelinkbot\bungee\MySQL\MySQL.class
+me\lenajenichen\mauvelinkbot\bungee\commands\Link_Command$1.class
 me\lenajenichen\mauvelinkbot\bungee\listener\JoinListener.class
-me\lenajenichen\mauvelinkbot\discord\api\GroupManager.class
 me\lenajenichen\mauvelinkbot\Main.class
 me\lenajenichen\mauvelinkbot\bungee\api\MySQLAPI.class
-me\lenajenichen\mauvelinkbot\bungee\commands\Link_Command.class
 me\lenajenichen\mauvelinkbot\discord\DiscordBot_Main.class
+me\lenajenichen\mauvelinkbot\bungee\commands\Link_Command$3.class
+me\lenajenichen\mauvelinkbot\bungee\api\Code_Generator.class
+me\lenajenichen\mauvelinkbot\bungee\MySQL\MySQL.class
+me\lenajenichen\mauvelinkbot\discord\api\GroupManager.class
+me\lenajenichen\mauvelinkbot\bungee\commands\Link_Command$2.class
+me\lenajenichen\mauvelinkbot\bungee\commands\Link_Command.class

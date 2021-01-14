@@ -1,7 +1,5 @@
 package me.lenajenichen.mauvelinkbot.bungee.MySQL;
 
-import me.lenajenichen.mauvelinkbot.Main;
-
 import java.sql.*;
 
 public class MySQL {
@@ -17,18 +15,21 @@ public class MySQL {
 
     public static void connect()
     {
+        message_database = null;
         if (!isConnected()) {
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                //stmt = message_database.createStatement();
                 message_database = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username, passwort);
+                stmt = message_database.createStatement();
                 System.out.println("MySQL ist Verbunden!");
             }
             catch (SQLException | ClassNotFoundException e)
             {
                 e.printStackTrace();
             }
+        } else {
+            System.out.println("Es besteht bereits eine Verbindung.");
         }
     }
 
@@ -58,7 +59,7 @@ public class MySQL {
         {
             MySQL.connect();
             message_database.prepareStatement("CREATE TABLE IF NOT EXISTS messages(Message_name VARCHAR(32), Message VARCHAR(100), messagelanguage VARCHAR(2));").executeUpdate();
-            message_database.prepareStatement("CREATE TABLE IF NOT EXISTS players(playername VARCHAR (16), UUID VARCHAR (36), discord_tag VARCHAR(37), is_linked BOOLEAN, code VARCHAR(16))").executeUpdate();
+            message_database.prepareStatement("CREATE TABLE IF NOT EXISTS players(playername VARCHAR (16), UUID VARCHAR (36) NOT NULL, discord_tag VARCHAR(37), is_linked BOOLEAN, code VARCHAR(16))").executeUpdate();
             MySQL.disconnect();
         }
         catch (SQLException e)
@@ -70,20 +71,20 @@ public class MySQL {
     public static void updateQuery(String sqlCommand) {
         try {
             MySQL.connect();
-            System.out.println("MySQL Connected!");
-            stmt.execute(sqlCommand);
+            stmt.executeUpdate(sqlCommand);
             System.out.println("Der SQL Command wurde erfolgreich ausgefürt!");
             MySQL.disconnect();
         } catch (SQLException e) {
             System.out.println("Der SQL Command konnte nicht ausgeführt werden.");
             e.printStackTrace();
+            MySQL.disconnect();
         }
     }
 
-    public static ResultSet queryPurchases(String sqlCommand) {
+    public static ResultSet queryMySQL(String sqlCommand) {
         try {
             MySQL.connect();
-            stmt = message_database.createStatement();
+            //stmt = message_database.createStatement();
             return stmt.executeQuery(sqlCommand);
         } catch (SQLException e) {
             MySQL.disconnect();
