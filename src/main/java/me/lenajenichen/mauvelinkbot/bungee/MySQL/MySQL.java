@@ -9,19 +9,18 @@ public class MySQL {
     public static String database;
     public static String username;
     public static String passwort;
-    public static Connection message_database;
     public static Connection player_database;
     public static Statement stmt;
 
     public static void connect()
     {
-        message_database = null;
+        player_database = null;
         if (!isConnected()) {
             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                message_database = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username, passwort);
-                stmt = message_database.createStatement();
+                player_database = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&&serverTimezone=UTC&&useUnicode=true&autoReconnect=true", username, passwort);
+                stmt = player_database.createStatement();
                 System.out.println("MySQL ist Verbunden!");
             }
             catch (SQLException | ClassNotFoundException e)
@@ -38,7 +37,7 @@ public class MySQL {
         if (isConnected()) {
             try
             {
-                message_database.close();
+                player_database.close();
                 System.out.println("MySQL Verbindung getrennt!");
             }
             catch (SQLException e)
@@ -50,7 +49,7 @@ public class MySQL {
 
     public static boolean isConnected()
     {
-        return message_database != null;
+        return player_database != null;
     }
 
     public static void createTable()
@@ -58,8 +57,7 @@ public class MySQL {
         try
         {
             MySQL.connect();
-            message_database.prepareStatement("CREATE TABLE IF NOT EXISTS messages(Message_name VARCHAR(32), Message VARCHAR(100), messagelanguage VARCHAR(2));").executeUpdate();
-            message_database.prepareStatement("CREATE TABLE IF NOT EXISTS players(playername VARCHAR (16), UUID VARCHAR (36) NOT NULL, discord_tag VARCHAR(37), is_linked BOOLEAN, code VARCHAR(16))").executeUpdate();
+            player_database.prepareStatement("CREATE TABLE IF NOT EXISTS players(playername VARCHAR (16), UUID VARCHAR (36) NOT NULL, discord_tag VARCHAR(37), is_linked BOOLEAN, code VARCHAR(16), rank VARCHAR(64))").executeUpdate();
             MySQL.disconnect();
         }
         catch (SQLException e)

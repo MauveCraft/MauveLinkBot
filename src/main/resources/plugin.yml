@@ -1,3 +1,4 @@
 name: MauveLinkBot
 main: me.lenajenichen.mauvelinkbot.Main
 version: 0.1
+depend: [LuckPerms]

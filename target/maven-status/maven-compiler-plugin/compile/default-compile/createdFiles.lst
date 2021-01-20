@@ -1,7 +1,6 @@
 me\lenajenichen\mauvelinkbot\bungee\commands\Link_Command$1.class
 me\lenajenichen\mauvelinkbot\bungee\listener\JoinListener.class
 me\lenajenichen\mauvelinkbot\Main.class
-me\lenajenichen\mauvelinkbot\bungee\api\MySQLAPI.class
 me\lenajenichen\mauvelinkbot\discord\DiscordBot_Main.class
 me\lenajenichen\mauvelinkbot\bungee\commands\Link_Command$3.class
 me\lenajenichen\mauvelinkbot\bungee\api\Code_Generator.class

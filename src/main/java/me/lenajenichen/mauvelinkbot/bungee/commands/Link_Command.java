@@ -46,6 +46,7 @@ public class Link_Command extends Command {
                     command_cooldown.add(p.getDisplayName());
                     ProxyServer.getInstance().getScheduler().schedule(plugin, new Runnable() {
                         public void run() {
+                            MySQL.updateQuery("UPDATE players SET code=NULL WHERE playername='" + string_code.get(0) + "'");
                             string_code.remove(0);
                         }
                     }, 5, TimeUnit.MINUTES);

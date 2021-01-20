@@ -4,6 +4,8 @@ import me.lenajenichen.mauvelinkbot.bungee.commands.Link_Command;
 import me.lenajenichen.mauvelinkbot.bungee.MySQL.MySQL;
 import me.lenajenichen.mauvelinkbot.bungee.listener.JoinListener;
 import me.lenajenichen.mauvelinkbot.discord.DiscordBot_Main;
+import net.luckperms.api.LuckPerms;
+import net.luckperms.api.LuckPermsProvider;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
 import net.md_5.bungee.config.Configuration;
@@ -16,17 +18,20 @@ import java.nio.file.Files;
 
 public class Main extends Plugin {
 
+    public static LuckPerms api;
     public static File mysql_file;
     public static Configuration mysql_cfg;
 
     @Override
     public void onEnable() {
-        getLogger().info("Plugin on");
+
+        api = LuckPermsProvider.get();
         createMySQLConfig();
         readMySQLData();
         MySQL.createTable();
         DiscordBot_Main.main();
         registerEvents();
+        getLogger().info("Plugin on");
     }
 
     @Override

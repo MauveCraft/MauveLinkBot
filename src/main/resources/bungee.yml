@@ -1,0 +1,7 @@
+name: MauveLinkBot
+author: Lena Jenichen
+version: 0.1
+main: me.lenajenichen.mauvelinkbot.Main
+depends: [LuckPerms]
+commands:
+  link:
