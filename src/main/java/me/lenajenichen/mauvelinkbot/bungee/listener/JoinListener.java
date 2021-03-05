@@ -21,6 +21,7 @@ public class JoinListener implements Listener {
         try {
             if (getUser.next()) {
                 MySQL.updateQuery("UPDATE players SET playername='" + p.getDisplayName() +"' WHERE UUID='" + p.getUniqueId().toString().replaceAll("-", "") + "'");
+                MySQL.updateQuery("UPDATE players SET rank = '" + Main.api.getUserManager().getUser(p.getUniqueId()).getPrimaryGroup() + "' WHERE playername = '" + p.getDisplayName() + "'");
             } else {
                 MySQL.updateQuery("INSERT INTO players(playername, UUID, discord_tag, is_linked, code, rank) VALUES('" + p.getDisplayName() + "', '" + p.getUniqueId().toString().replaceAll("-", "") + "', '" + " " + "', " + false + ", '" + " " + "', '" + Main.api.getUserManager().getUser(p.getUniqueId()).getPrimaryGroup() + "')");
             }

@@ -4,8 +4,11 @@ import me.lenajenichen.mauvelinkbot.bungee.commands.Link_Command;
 import me.lenajenichen.mauvelinkbot.bungee.MySQL.MySQL;
 import me.lenajenichen.mauvelinkbot.bungee.listener.JoinListener;
 import me.lenajenichen.mauvelinkbot.discord.DiscordBot_Main;
+import me.lenajenichen.mauvelinkbot.discord.events.CodeReceivedEvent;
+import net.dv8tion.jda.api.entities.Guild;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
+import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
 import net.md_5.bungee.config.Configuration;
@@ -36,8 +39,9 @@ public class Main extends Plugin {
 
     @Override
     public void onDisable() {
-        getLogger().info("Plugin off");
+        MySQL.updateQuery("UPDATE players SET code = NULL WHERE code is not null");
         DiscordBot_Main.shutdown();
+        getLogger().info("Plugin off");
     }
 
     public void registerEvents() {

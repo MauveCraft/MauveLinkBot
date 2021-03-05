@@ -57,7 +57,7 @@ public class MySQL {
         try
         {
             MySQL.connect();
-            player_database.prepareStatement("CREATE TABLE IF NOT EXISTS players(playername VARCHAR (16), UUID VARCHAR (36) NOT NULL, discord_tag VARCHAR(37), is_linked BOOLEAN, code VARCHAR(16), rank VARCHAR(64))").executeUpdate();
+            player_database.prepareStatement("CREATE TABLE IF NOT EXISTS players(playername VARCHAR (16), UUID VARCHAR (36) NOT NULL, discord_tag VARCHAR(37), discord_id VARCHAR(19), is_linked BOOLEAN, code VARCHAR(16), rank VARCHAR(64))").executeUpdate();
             MySQL.disconnect();
         }
         catch (SQLException e)
