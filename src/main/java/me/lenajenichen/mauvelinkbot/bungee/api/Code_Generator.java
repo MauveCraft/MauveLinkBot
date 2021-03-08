@@ -9,7 +9,7 @@ public class Code_Generator {
     private static final String LOWER = "abcdefghijklmnopqrstuvwxyz";
     private static final String UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String DIGITS = "0123456789";
-    private static final String PUNCTUATION = "!$%&/()=?;:,.#+*~";
+    private static final String PUNCTUATION = "!$%&/()=?;,.#+*~";
 
     public String generate() {
         StringBuilder code = new StringBuilder(16);

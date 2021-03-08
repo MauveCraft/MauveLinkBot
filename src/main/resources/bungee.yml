@@ -5,3 +5,4 @@ main: me.lenajenichen.mauvelinkbot.Main
 depends: [LuckPerms]
 commands:
   link:
+  unlink:

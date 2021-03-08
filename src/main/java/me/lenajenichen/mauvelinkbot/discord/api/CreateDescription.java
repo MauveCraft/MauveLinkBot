@@ -36,10 +36,11 @@ public class CreateDescription {
         channel.sendMessage(builder.build()).queue();
     }
 
-    public static void createDescriptionPrivateMember(Member m, String message, String colorcode) {
+    public static void createDescriptionPrivateMember(Member m, String message, String colorcode, String name, String url) {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setDescription(message);
         builder.setColor(Color.decode(colorcode));
+        builder.setAuthor(name, null, url);
         m.getUser().openPrivateChannel().queue(channel -> {
             channel.sendMessage(builder.build()).queue();
         });
@@ -59,9 +60,9 @@ public class CreateDescription {
         builder.setDescription(message);
         builder.setColor(Color.decode(colorcode));
         builder.setAuthor(name, null, url);
-            user.openPrivateChannel().queue(channel -> {
-                channel.sendMessage(builder.build()).queue();
-            });
-        }
+        user.openPrivateChannel().queue(channel -> {
+            channel.sendMessage(builder.build()).queue();
+        });
+    }
 
 }

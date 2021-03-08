@@ -26,8 +26,8 @@ public class RankUpdate {
         Committed: 783448546966765578
      */
 
-    public static String getCurrentRank(User user) {
-        ResultSet rank = MySQL.queryMySQL("SELECT rank FROM players WHERE discord_tag = '" + user.getAsTag() + "' AND is_linked=1");
+    public static String getCurrentRank(String user) {
+        ResultSet rank = MySQL.queryMySQL("SELECT rank FROM players WHERE discord_tag = '" + user + "' AND is_linked=1");
         try {
             if(rank.next()) {
                 String current_rank = rank.getString("rank");

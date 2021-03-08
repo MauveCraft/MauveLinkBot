@@ -2,17 +2,12 @@ package me.lenajenichen.mauvelinkbot.discord.events;
 
 import me.lenajenichen.mauvelinkbot.bungee.MySQL.MySQL;
 import me.lenajenichen.mauvelinkbot.bungee.listener.RankUpdate;
-import me.lenajenichen.mauvelinkbot.discord.DiscordBot_Main;
 import me.lenajenichen.mauvelinkbot.discord.api.CreateDescription;
-import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.priv.PrivateMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 
-import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -37,21 +32,20 @@ public class CodeReceivedEvent extends ListenerAdapter {
                             try {
                                 if (userid.next()) {
                                     String id = userid.getString("discord_id");
-                                    CreateDescription.createDescriptionPrivateUser(user, RankUpdate.getCurrentRank(user) + " " + id, "#e1343f");
-                                    e.getJDA().getGuildById("791273863530020894").addRoleToMember(id, e.getJDA().getRoleById(RankUpdate.getCurrentRank(user))).complete();
+                                    e.getJDA().getGuildById("791273863530020894").addRoleToMember(id, e.getJDA().getRoleById(RankUpdate.getCurrentRank(user.getAsTag()))).complete();
                                     CreateDescription.createDescriptionPrivateUserAll(user, "Your account was linked successfully! \n Your rank will be updated soon on discord.", "#00FF00", "https://cdn.discordapp.com/avatars/791395018983342140/c14cf822d9a8ac9ceebc1c91e6fdf6a5.png", "Link sucsessfull!");
                                 } else {
 
                                 }
-                            } catch (SQLException e1) {
-                                e1.printStackTrace();
+                            } catch (SQLException e2) {
+                                e2.printStackTrace();
                             }
                         } else {
                             CreateDescription.createDescriptionPrivateUser(user, "Your account is already linked! Use /unlink if you wish to unlink your account.", "#e1343f");
                         }
                     }
-                } catch (SQLException e2) {
-                    e2.printStackTrace();
+                } catch (SQLException e3) {
+                    e3.printStackTrace();
                 }
             } else {
                 CreateDescription.createDescriptionPrivateUser(user, "Error 404", "#e1343f");

@@ -2,6 +2,7 @@ package me.lenajenichen.mauvelinkbot;
 
 import me.lenajenichen.mauvelinkbot.bungee.commands.Link_Command;
 import me.lenajenichen.mauvelinkbot.bungee.MySQL.MySQL;
+import me.lenajenichen.mauvelinkbot.bungee.commands.Unlink_Command;
 import me.lenajenichen.mauvelinkbot.bungee.listener.JoinListener;
 import me.lenajenichen.mauvelinkbot.discord.DiscordBot_Main;
 import me.lenajenichen.mauvelinkbot.discord.events.CodeReceivedEvent;
@@ -47,6 +48,7 @@ public class Main extends Plugin {
     public void registerEvents() {
         PluginManager pm = getProxy().getPluginManager();
         pm.registerCommand(this, new Link_Command(this, this));
+        pm.registerCommand(this, new Unlink_Command(this, this));
         pm.registerListener(this, new JoinListener());
     }
 
