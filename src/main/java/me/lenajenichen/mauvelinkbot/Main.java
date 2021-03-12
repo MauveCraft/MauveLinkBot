@@ -6,6 +6,7 @@ import me.lenajenichen.mauvelinkbot.bungee.commands.Unlink_Command;
 import me.lenajenichen.mauvelinkbot.bungee.listener.JoinListener;
 import me.lenajenichen.mauvelinkbot.discord.DiscordBot_Main;
 import me.lenajenichen.mauvelinkbot.discord.events.CodeReceivedEvent;
+import me.lenajenichen.mauvelinkbot.discord.utils.GiveDiscordRank;
 import net.dv8tion.jda.api.entities.Guild;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
@@ -28,7 +29,6 @@ public class Main extends Plugin {
 
     @Override
     public void onEnable() {
-
         api = LuckPermsProvider.get();
         createMySQLConfig();
         readMySQLData();
@@ -50,6 +50,7 @@ public class Main extends Plugin {
         pm.registerCommand(this, new Link_Command(this, this));
         pm.registerCommand(this, new Unlink_Command(this, this));
         pm.registerListener(this, new JoinListener());
+        pm.registerListener(this, new GiveDiscordRank(this, api));
     }
 
     //public static Main getPlugin(Class<Main> mainClass) {

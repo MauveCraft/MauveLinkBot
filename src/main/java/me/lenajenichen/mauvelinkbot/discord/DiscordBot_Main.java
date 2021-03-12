@@ -41,7 +41,7 @@ public class DiscordBot_Main {
         manager = new Manager();
 
         jda.addEventListener(new CodeReceivedEvent());
-        jda.addEventListener(new Manager());
+        //jda.addEventListener(new Manager());
         jda.getPresence().setActivity(Activity.playing("test123"));
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
     }
