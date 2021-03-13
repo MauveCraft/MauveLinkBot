@@ -36,7 +36,7 @@ public class DiscordBot_Main {
         INSTANCE = this;
 
         new JDABuilder();
-        jda = JDABuilder.createDefault("NzkxMzk1MDE4OTgzMzQyMTQw.X-OiCw.ojlfxeT5iuuNYg1OGHhVunr4wD0").build();
+        jda = JDABuilder.createDefault("key").build();
 
         manager = new Manager();
 
